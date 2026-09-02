@@ -1,4 +1,7 @@
 ```markdown
+
+Author SHIVA PRASAD REDDY
+email:shivareddyr100@gmail.com
 # 🪪 Intelligent Document ID Processing System
 
 A local, privacy-first deep learning system to **classify** and **extract key fields** from Indian government-issued identity documents (PAN Card, Aadhaar Card).
@@ -531,6 +534,7 @@ This is a deep learning end-to-end model, not rule-based or template-matching OC
 #### Post-Processing — Minimal by Design
 
 Only format validation and date normalisation. No text rewriting, no spell correction, no NER. The deep learning models are expected to produce correct text — post-processing only catches format errors.
+
 
 
 ### Evaluation Criteria Mapping
