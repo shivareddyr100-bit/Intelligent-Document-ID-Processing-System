@@ -605,3 +605,12 @@ I have also attached an output screenshot in the output_image folder i.e present
 
 This project is provided for educational and evaluation purposes.
 ```
+
+Copy this entire content into your `README.md` file. It covers all four deliverables the assignment asks for:
+
+1. ✅ **Source code** — in the repo
+2. ✅ **Technical note** — "Technical Note" section with architecture, model justification, assumptions, limitations, failure cases
+3. ✅ **Demo output** — "Demo Output" section with 3 sample JSON outputs
+4. ✅ **README** — environment setup + steps to run inference
+
+```
