@@ -560,6 +560,8 @@ Only format validation and date normalisation. No text rewriting, no spell corre
 
 ---
 
+I have also attached an output screenshot in the output_image folder present in the same repository.
+
 ## License
 
 This project is provided for educational and evaluation purposes.
