@@ -1,7 +1,7 @@
 ```markdown
 
-Author SHIVA PRASAD REDDY
-email:shivareddyr100@gmail.com
+Author name:  SHIVA PRASAD REDDY
+Email: shivareddyr100@gmail.com
 # 🪪 Intelligent Document ID Processing System
 
 A local, privacy-first deep learning system to **classify** and **extract key fields** from Indian government-issued identity documents (PAN Card, Aadhaar Card).
