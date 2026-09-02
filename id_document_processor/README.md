@@ -1,6 +1,6 @@
 ```markdown
 
-Author name: SHIVA PRASAD REDDY
+Author(Creator) name: SHIVA PRASAD REDDY
 Email: shivareddyr100@gmail.com
 # 🪪 Intelligent Document ID Processing System
 
@@ -26,7 +26,6 @@ A local, privacy-first deep learning system to **classify** and **extract key fi
   - [Known Failure Cases](#known-failure-cases)
   - [Evaluation Criteria Mapping](#evaluation-criteria-mapping)
 - [Tech Stack](#tech-stack)
-- [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -535,6 +534,44 @@ This is a deep learning end-to-end model, not rule-based or template-matching OC
 
 Only format validation and date normalisation. No text rewriting, no spell correction, no NER. The deep learning models are expected to produce correct text — post-processing only catches format errors.
 
+### Assumptions
+
+| # | Assumption |
+|---|-----------|
+| 1 | Documents are standard government-issued PAN or Aadhaar cards |
+| 2 | Text is machine-printed in English (handwritten and Hindi text are out of scope) |
+| 3 | The uploaded image contains exactly one complete document |
+| 4 | Sufficient image quality for OCR (not severely blurred or pitch-dark) |
+| 5 | Standard card layouts as issued by UIDAI and Income Tax Department |
+| 6 | PAN numbers follow `[A-Z]{5}[0-9]{4}[A-Z]` format |
+| 7 | Aadhaar numbers are exactly 12 digits |
+
+### Limitations
+
+| Limitation | Impact |
+|-----------|--------|
+| Heuristic classifier without training data | Relies on OCR quality; may misclassify very low-quality images |
+| No handwritten text support | Fails on manually filled forms |
+| Address extraction is heuristic-based | May include or exclude adjacent text lines |
+| Hindi text on Aadhaar is ignored | Loses bilingual information |
+| PDF: first page only | Multi-page PDFs are not fully processed |
+| No document authenticity detection | Cannot determine if a document is genuine or forged |
+| Skew correction has limits | Very heavily rotated images (>30°) may not be corrected |
+| Single document per image | Multiple cards in one image are not handled |
+
+### Known Failure Cases
+
+| Scenario | Expected Behaviour |
+|----------|--------------------|
+| Heavily blurred image (motion blur) | OCR returns garbled text → empty fields |
+| Card partially covered by finger or shadow | Missing text regions → incomplete extraction |
+| Overexposed or very dark photo | Text detection threshold fails → no OCR results |
+| Old-format PAN card (pre-2017 layout) | Different label text → name/DOB may not be found |
+| Screenshot with app UI overlay | Extra detected text → possible misclassification |
+| Multiple cards in one image | First matching pattern wins; second card is ignored |
+| Completely blank or white image | No OCR results → "Unknown" classification, empty fields |
+| Non-Indian ID (Passport, Driving License) | "Unknown" classification, no field extraction |
+| Image smaller than 100px in any dimension | Resize degrades quality beyond OCR usability |
 
 ### Evaluation Criteria Mapping
 
@@ -562,17 +599,9 @@ Only format validation and date normalisation. No text rewriting, no spell corre
 | Language | Python 3.9 – 3.12 | — |
 
 ---
-
-I have also attached an output screenshot in the output_image folder present in the same repository.
+I have also attached an output screenshot in the output_image folder i.e present in the same repository.
 
 ## License
 
 This project is provided for educational and evaluation purposes.
 ```
-
-Copy this entire content into your `README.md` file. It covers all four deliverables the assignment asks for:
-
-1. ✅ **Source code** — in the repo
-2. ✅ **Technical note** — "Technical Note" section with architecture, model justification, assumptions, limitations, failure cases
-3. ✅ **Demo output** — "Demo Output" section with 3 sample JSON outputs
-4. ✅ **README** — environment setup + steps to run inference
