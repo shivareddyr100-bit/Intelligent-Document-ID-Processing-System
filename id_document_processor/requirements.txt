@@ -1,0 +1,21 @@
+streamlit>=1.28.0
+opencv-python-headless>=4.8.0
+numpy>=1.24.0
+Pillow>=10.0.0
+PyMuPDF>=1.23.0
+python-dateutil>=2.8.0
+ultralytics>=8.0.0
+
+# Choose ONE OCR engine (uncomment your preference):
+
+# Option A: PaddleOCR (recommended for Indian documents)
+paddlepaddle>=2.5.0
+paddleocr>=2.7.0
+
+# Option B: EasyOCR (lighter alternative)
+ easyocr>=1.7.0
+ torch>=2.0.0
+ torchvision>=0.15.0
+
+ #optional:CNN classifer  training
+ tensorflow>=2.13.0
